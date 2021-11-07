@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid';
 
 import '../styles/tasklist.scss'
 
@@ -18,7 +17,7 @@ export function TaskList() {
   function handleCreateNewTask() {
     if(newTaskTitle){
       const newTask: Task = {
-        id: parseInt(uuidv4()),
+        id: tasks.length + 1,
         title: newTaskTitle,
         isComplete: false
       }
@@ -35,6 +34,8 @@ export function TaskList() {
 
   function handleRemoveTask(id: number) {
     const newTasks = tasks.filter(task => task.id !== id);
+    console.log(newTasks);
+    console.log(newTasks);
     setTasks(newTasks);
   }
 
